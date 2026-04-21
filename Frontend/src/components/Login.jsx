@@ -26,44 +26,45 @@ const Login = ({ setUser }) => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl">
-                <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-6">
-                    {isLogin ? 'Login to Twitter' : 'Create Account'}
+        <div className="flex items-center justify-center min-h-screen bg-background text-text">
+            <div className="w-full max-w-md p-8 bg-surface border border-border/50 rounded-2xl shadow-xl">
+                <div className="flex justify-center mb-6">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" className="w-10 h-10 fill-current text-white"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 3.936H5.023z"></path></g></svg>
+                </div>
+                <h2 className="text-3xl font-extrabold text-center mb-6">
+                    {isLogin ? 'Sign in to X' : 'Join X today'}
                 </h2>
 
                 {error && (
-                    <div className="p-3 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+                    <div className="p-3 mb-4 text-sm text-white bg-red-500/80 rounded-lg">
                         {error}
                     </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Username</label>
                         <input
                             type="text"
                             required
-                            className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                            placeholder="Enter username"
+                            className="w-full px-4 py-3 bg-transparent border border-border/50 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors"
+                            placeholder="Username"
                             onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Password</label>
                         <input
                             type="password"
                             required
-                            className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                            placeholder="••••••••"
+                            className="w-full px-4 py-3 bg-transparent border border-border/50 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors"
+                            placeholder="Password"
                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full py-3 mt-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
+                        className="w-full py-3 mt-4 font-bold text-background bg-white rounded-full hover:bg-gray-200 transition-colors"
                     >
                         {isLogin ? 'Sign In' : 'Sign Up'}
                     </button>
@@ -72,9 +73,9 @@ const Login = ({ setUser }) => {
                 <div className="mt-6 text-center">
                     <button
                         onClick={() => setIsLogin(!isLogin)}
-                        className="text-sm text-blue-500 hover:underline"
+                        className="text-sm text-primary hover:underline"
                     >
-                        {isLogin ? "Don't have an account? Register" : "Already have an account? Login"}
+                        {isLogin ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
                     </button>
                 </div>
             </div>
